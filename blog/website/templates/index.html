@@ -1,0 +1,130 @@
+{%  load static %}
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Django Blog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="{% static 'images/fsg.jpg' %}" alt="" /></a>
+					<h1><strong>Fabrício Guimarães</strong>,<br /> Desenvolvedor Web Fullstack<br />
+					VueJs | NodeJs | Laravel | Django<br />
+					Freelancer nas horas vagas</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Django Blog<br />
+							</h2>
+						</header>
+						<p>Blog construído com o objetivo de aprender mais sobre o framework mais robusto de python.</p>
+						<ul class="actions">
+							<li><a href="https://www.linkedin.com/in/fabrícioguimarães" class="button">Leia mais</a></li>
+						</ul>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Postagens</h2>
+						<div class="row">
+							{% for post in posts %}
+								<article class="col-6 col-12-xsmall work-item">                               
+								
+									{% if post.imagem %}
+										<img src="{{ post.imagem.url }}" alt="{{ post.imagem.url }}" width="370px" height="217px" class="image fit thumb" />
+									{% else %}
+										<img src="{% static 'images/thumbs/semimagem.jpg' %}" alt="" width="370px" height="217px" class="image fit thumb"/>
+									{% endif %}
+									<h3>{{post.title}}</h3>
+									
+									<!-- <span style="border: 1px solid #a2a2a2; padding: 0 4px; border-radius: 5px;">{{ post.get_category_label }}</span> -->
+									<ul class="actions">
+										<li><a href="{% url 'post_detail' post.id %}" class="button">Leia mais</a></li>
+									</ul>
+								</article>
+							{% endfor %}
+						</div>						
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Fale conosco</h2>
+						<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<form method="post" action="{% url 'saveform' %}">
+									{% csrf_token %}
+									<div class="row gtr-uniform gtr-50">
+										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>									
+										<input type="submit" value="Enviar Mensagem" style="margin-top: 25px;" />
+									
+								</form>
+								
+							</div>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-home"><span class="label">Endereço</span></h3>
+										Rua Ali perto, 123<br />
+										Rio de Janeiro, RJ, 55555-555<br />
+										Brasil
+									</li>
+									<li>
+										<h3 class="icon solid fa-mobile-alt"><span class="label">Telefone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="#">fabricioguimaraes55@gmail.com</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">						
+						<li><a href="https://github.com/Fabricio-Guima" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/fabrícioguimarães" class="icon brands fa-linkedin"><span class="label">Github</span></a></li> 						
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Direitos reservados</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

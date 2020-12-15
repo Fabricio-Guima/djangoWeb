@@ -1,0 +1,60 @@
+
+    
+
+    {%  load static %}
+    <!DOCTYPE HTML>
+        <html>
+        <head>
+            <title>Django Blog</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+            <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+        </head>
+        <body class="is-preload">
+    
+            <!-- Header -->
+                <header id="header">
+                    <div class="inner">
+                        <a href="#" class="image avatar"><img src="{% static 'images/fsg.jpg' %}" alt="" /></a>
+                        <h1><strong>Fabrício Guimarães</strong>,<br /> Desenvolvedor Web Fullstack<br />
+                        VueJs | NodeJs | Laravel | Django<br />
+                        Freelancer nas horas vagas</h1>
+                    </div>
+                </header>
+    
+            <!-- Main -->
+                <div id="main">
+    
+                    <!-- One -->
+                        <section id="one">
+                            <h1 style="text-align: center;">Obrigado(a), {{ name }} pela sua mensagem!</h1>
+                            <ul class="actions">
+                                <li><a href="{% url 'hello' %}" class="button">Voltar</a></li>
+                            </ul>
+                        </section>	
+                </div>
+    
+            <!-- Footer -->
+                <footer id="footer">
+                    <div class="inner">
+                        <ul class="icons">						
+                            <li><a href="https://github.com/Fabricio-Guima" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/fabrícioguimarães" class="icon brands fa-linkedin"><span class="label">Github</span></a></li> 						
+                            <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                        <ul class="copyright">
+                            <li>&copy; Direitos reservados</li>
+                        </ul>
+                    </div>
+                </footer>
+    
+            <!-- Scripts -->
+                <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+                <script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+                <script src="{% static 'assets/js/browser.min.js' %}"></script>
+                <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+                <script src="{% static 'assets/js/util.js' %}"></script>
+                <script src="{% static 'assets/js/main.js' %}"></script>
+    
+        </body>
+    </html>
